@@ -1,6 +1,7 @@
 extern crate rand;
 
 use rand::Rng;
+use std::cmp::Ordering;
 use std::io;
 
 fn main() {
@@ -10,12 +11,20 @@ fn main() {
 
     println!("Please input your guess.");
 
-    let mut guess = String::new();
+    let mut line = String::new();
 
     io::stdin()
-        .read_line(&mut guess)
+        .read_line(&mut line)
         .expect("Failed to read line!");
 
-    println!("You guessed: {}", guess);
-    println!("The secret number is: {}", secret_number);
+    let guess: u32 = line.trim().parse().expect("Wanted a number.");
+
+    println!("Your guess was {}", guess);
+    println!("The secret number was {}", secret_number);
+
+    match guess.cmp(&secret_number) {
+        Ordering::Equal => println!("You got it!"),
+        Ordering::Less => println!("Too small!"),
+        Ordering::Greater => println!("Too big!"),
+    }
 }
