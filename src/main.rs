@@ -17,7 +17,7 @@ fn main() {
         .read_line(&mut line)
         .expect("Failed to read line!");
 
-    let guess: u32 = line.trim().parse().expect("Wanted a number.");
+    let guess: u32 = line.trim().parse().expect("Wanted a positive number.");
 
     println!("Your guess was {}", guess);
     println!("The secret number was {}", secret_number);
