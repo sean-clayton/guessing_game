@@ -23,7 +23,7 @@ fn main() {
         let guess: u32 = match line.trim().parse() {
             Ok(num) => num,
             Err(_) => {
-                println!("\"{}\" is invalid. Try again.", line.trim());
+                println!("\"{}\" is not a positive integer. Try again.", line.trim());
                 continue;
             }
         };
