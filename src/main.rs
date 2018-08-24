@@ -21,7 +21,18 @@ fn main() {
             .expect("Failed to read line!");
 
         let guess: u32 = match line.trim().parse() {
-            Ok(num) => num,
+            // If we have a valid number, just use the number
+            Ok(num) if num >= 1 && num <= 10 => num,
+            // We have zero.
+            Ok(0) => {
+                println!("0 is not equal to or greater than 1. Try again");
+                continue;
+            }
+            // We have positive integer, but it's greater than 10
+            Ok(num) => {
+                println!("{} is greater than 10. Try again.", num);
+                continue;
+            }
             Err(_) => {
                 println!("\"{}\" is not a positive integer. Try again.", line.trim());
                 continue;
