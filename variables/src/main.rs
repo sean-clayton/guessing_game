@@ -50,9 +50,9 @@ fn main() {
     let _arr: [i32; 5] = [1, 2, 3, 4, 5];
 
     // Functions
-    fn another_function() {
+    fn greeting() {
         println!("Wazzap!");
-    }
+    };
 
-    another_function();
+    greeting();
 }
