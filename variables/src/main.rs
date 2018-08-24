@@ -9,40 +9,50 @@ fn main() {
     // Types
 
     // Integers
-    let int_a: u32 = "42".parse().expect("Not a number");
-    let int_b: u32 = 42;
-    let int_c: i32 = -42;
+    let _int_a: u32 = "42".parse().expect("Not a number");
+    let _int_b: u32 = 42;
+    let _int_c: i32 = -42;
     // Hexidecimal
-    let int_d = 0xFFFFFF;
+    let _int_d = 0xFFFFFF;
     // Binary
-    let int_e = 0b1001;
+    let _int_e = 0b1001;
 
     // Floating points
     // 64-bit double precision floating point: Aka Doubles
-    let f_x = 2.0;
+    let _f_x = 2.0;
     // Single precision
-    let f_y: f32 = 2.0;
+    let _f_y: f32 = 2.0;
 
     // Basic arithmetic
 
     // Addition
-    let sum = 5 + 5;
+    let _sum = 5 + 5;
 
     // Subtraction
-    let subtraction = 5 - 5;
+    let _subtraction = 5 - 5;
 
     // Multiplication
-    let multiply = 5 * 5;
+    let _multiply = 5 * 5;
 
     // Division
-    let divide = 5 / 5;
+    let _divide = 5 / 5;
 
     // Remainder
-    let remainder = 5 % 5;
+    let _remainder = 5 % 5;
 
     // Booleans
-    let is_cool: bool = true;
+    let _is_cool: bool = true;
 
     // Characters
-    let emoji = '🐢';
+    let _emoji = '🐢';
+
+    // Arrays
+    let _arr: [i32; 5] = [1, 2, 3, 4, 5];
+
+    // Functions
+    fn another_function() {
+        println!("Wazzap!");
+    }
+
+    another_function();
 }
