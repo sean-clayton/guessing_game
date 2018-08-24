@@ -1,3 +1,6 @@
 fn main() {
-    println!("Hello, world!");
+    for num in (1..11).rev() {
+        println!("{}", num);
+    }
+    println!("Happy new year!!");
 }
