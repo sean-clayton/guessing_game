@@ -3,13 +3,14 @@ extern crate rand;
 use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
+use std::io::Write;
 
 fn main() {
     println!("Guess the number!");
+    print!("What is your guess? (1—10) ");
+    io::stdout().flush().unwrap();
 
     let secret_number = rand::thread_rng().gen_range(1, 11);
-
-    println!("Please input your guess.");
 
     let mut line = String::new();
 
