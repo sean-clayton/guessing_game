@@ -7,25 +7,27 @@ use std::io::Write;
 
 fn main() {
     println!("Guess the number!");
-    print!("What is your guess? (1—10) ");
-    io::stdout().flush().unwrap();
 
     let secret_number = rand::thread_rng().gen_range(1, 11);
 
-    let mut line = String::new();
+    loop {
+        print!("What is your guess? (1—10) ");
+        io::stdout().flush().unwrap();
 
-    io::stdin()
-        .read_line(&mut line)
-        .expect("Failed to read line!");
+        let mut line = String::new();
 
-    let guess: u32 = line.trim().parse().expect("Wanted a positive number.");
+        io::stdin()
+            .read_line(&mut line)
+            .expect("Failed to read line!");
 
-    println!("Your guess was {}", guess);
-    println!("The secret number was {}", secret_number);
+        let guess: u32 = line.trim().parse().expect("Wanted a positive number.");
 
-    match guess.cmp(&secret_number) {
-        Ordering::Equal => println!("You got it!"),
-        Ordering::Less => println!("Too small!"),
-        Ordering::Greater => println!("Too big!"),
+        println!("Your guess was {}", guess);
+
+        match guess.cmp(&secret_number) {
+            Ordering::Equal => println!("The secret number was {}! You got it!", secret_number),
+            Ordering::Less => println!("Too small!"),
+            Ordering::Greater => println!("Too big!"),
+        }
     }
 }
