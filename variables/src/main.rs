@@ -55,4 +55,14 @@ fn main() {
     };
 
     greeting();
+
+    // Closures
+    let str = "Wazzap closure!";
+    let cool_closure = || {
+        // Can access variables outside of block scope
+        println!("{}", str);
+    };
+    let cool_small_closure = || println!("{} You're so tiny!", str);
+    cool_closure();
+    cool_small_closure();
 }
