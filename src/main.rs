@@ -20,7 +20,13 @@ fn main() {
             .read_line(&mut line)
             .expect("Failed to read line!");
 
-        let guess: u32 = line.trim().parse().expect("Wanted a positive number.");
+        let guess: u32 = match line.trim().parse() {
+            Ok(num) => num,
+            Err(_) => {
+                println!("\"{}\" is invalid. Try again.", line.trim());
+                continue;
+            }
+        };
 
         println!("Your guess was {}", guess);
 
